@@ -5,10 +5,12 @@ using UnityEngine;
 public class RotateSphere : MonoBehaviour {
 
     #region Public Variables
-    public float rotationSpeed = 1f;
+    //public float rotationSpeed = 1f;
     public Transform CustomPivotPointCube;
     public Transform Target;
     //public Transform ufo;
+
+    public GameObject EntireScene;
     #endregion
 
     #region Private Variables
@@ -18,6 +20,8 @@ public class RotateSphere : MonoBehaviour {
 
     private Quaternion _lookRotation;
     private Vector3 _direction;
+
+    private float rotationSpeed;
     #endregion
 
     #region Unity Methods
@@ -29,13 +33,27 @@ public class RotateSphere : MonoBehaviour {
         //rotationAngle.y = Random.Range(-90, 90);
 
 	}
+
+    void OnEnable(){
+        //Get the current session, 0 1 or 2.
+        EndSession EndSessionScript = EntireScene.GetComponent<EndSession>();
+
+        //This is a primitive way of setting speed but works for now.
+        //rotationSpeed = 0.1, 0.5 and 0.9
+        rotationSpeed = 0.4f * EndSessionScript.selectedSession + 0.1f;
+    }
 	
 	void Update () {
 
         //Sphere rotates towards the target, which jumps between coordinates.
         _direction = (Target.position - bigSphere.transform.position).normalized;
-        _lookRotation = Quaternion.LookRotation(_direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * rotationSpeed);
+
+        if (_direction != Vector3.zero) {
+            //This IF-statement is just to escape the "Look Rotation Viewing Vector Is Zero" spam in console, it is not required.
+            _lookRotation = Quaternion.LookRotation(_direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * rotationSpeed);
+        }
+
 
 
         //This is needed because bigSphereReferenceRotation can't directly go into the IF-statement.
@@ -69,7 +87,7 @@ public class RotateSphere : MonoBehaviour {
         //rotationAngle = transform.rotation;
 
         //Seems like this is the coordinate for the cube (UFO) in 3D space, which is awesome.
-        //Debug.Log(CustomPivotPointCube.position);
+        //Debug.Log(CustomPivotPointCube.position.ToString("F7"));
 
 
 

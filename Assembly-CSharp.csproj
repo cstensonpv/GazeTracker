@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\EndSession.cs" />
     <Compile Include="Assets\EyeTracking.cs" />
     <Compile Include="Assets\EyeTrackingSAFE.cs" />
     <Compile Include="Assets\HeadTracking.cs" />

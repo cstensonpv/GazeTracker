@@ -1,14 +1,15 @@
 ﻿<Properties StartupConfiguration="{A9F874BC-220B-5768-3B35-0D3495E11863}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/RotateSphere.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/StartApplication.cs">
     <Files>
-      <File FileName="Assets/EyeTracking.cs" Line="80" Column="88" />
-      <File FileName="Assets/HeadTracking.cs" Line="16" Column="35" />
-      <File FileName="Assets/RotateSphere.cs" Line="75" Column="9" />
+      <File FileName="Assets/EyeTracking.cs" Line="86" Column="14" />
+      <File FileName="Assets/HeadTracking.cs" Line="24" Column="5" />
+      <File FileName="Assets/RotateSphere.cs" Line="29" Column="9" />
       <File FileName="Assets/EyeTrackingSAFE.cs" Line="86" Column="35" />
-      <File FileName="Assets/randomPosition.cs" Line="8" Column="24" />
-      <File FileName="Assets/SetBigSpherePosition.cs" Line="14" Column="62" />
-      <File FileName="Assets/lockRotation.cs" Line="21" Column="2" />
-      <File FileName="Assets/StartApplication.cs" Line="54" Column="3" />
+      <File FileName="Assets/randomPosition.cs" Line="24" Column="38" />
+      <File FileName="Assets/SetBigSpherePosition.cs" Line="32" Column="2" />
+      <File FileName="Assets/lockRotation.cs" Line="19" Column="9" />
+      <File FileName="Assets/StartApplication.cs" Line="12" Column="5" />
+      <File FileName="Assets/EndSession.cs" Line="26" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

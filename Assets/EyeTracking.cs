@@ -72,7 +72,8 @@ public class EyeTracking : MonoBehaviour {
             //string logPath = "Assets/logFiles/loggedDataEyes.txt";
             //StreamWriter writer = new StreamWriter(logPath, true);
             ////writer.WriteLine("point: " + MLEyes.FixationPoint);
-            //writer.WriteLine(MLEyes.FixationPoint.normalized);
+            /// .ToString("F7"). Here, the F means you're talking about Fixed-point, and the 4 means you want 4 decimals.
+            //writer.WriteLine(MLEyes.FixationPoint.normalized.ToString("F7"));
             //writer.Close();
 
             //Draw a line between fixation points
@@ -87,7 +88,7 @@ public class EyeTracking : MonoBehaviour {
             //lineRenderer.SetPosition(coordNumber, new Vector3(1.0f, 1.0f, 1.0f));
 
             positionsEye[coordNumber] = MLEyes.FixationPoint.normalized;
-            //Debug.Log("positions[coordNumber]: " + positions[coordNumber]);
+            //Debug.Log("positions[coordNumber]: " + positionsEye[coordNumber].ToString("F7"));
             //lineRenderer.positionCount = positions.Length;
             lineRendererEyes.SetPositions(positionsEye);
             coordNumber++;

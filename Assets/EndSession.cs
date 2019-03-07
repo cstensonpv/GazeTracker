@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EndSession : MonoBehaviour {
-
-    public GameObject StartApplicationSphere;
-    public GameObject RandomPositionDecider;
+    
+    public GameObject FireBaseLogic;
+    public int selectedSession;
 
     private IList<int> sessionList = new List<int>();
     private int randomIndex;
-    public int selectedSession;
 
     //Runs first (and only) time 'EntireScene object' is enabled.
 	void Awake () {
@@ -23,11 +22,16 @@ public class EndSession : MonoBehaviour {
 
     void OnEnable(){
         //Debug.Log("End session script");
-        StartApplicationSphere.SetActive(false);
 
         if (sessionList.Count == 0) {
             //Program should probably end here.
             Debug.Log("OUT OF SESSIONS");
+
+            //Run send to SendToDatabase from FirebaseScript
+            FirebaseScript FirebaseScript = FireBaseLogic.GetComponent<FirebaseScript>();
+            FirebaseScript.SendToDatabase();
+
+            //Application.Quit();
         }
 
         else {
@@ -41,16 +45,6 @@ public class EndSession : MonoBehaviour {
             sessionList.RemoveAt(randomIndex);
         }
 
-
     }
 	
-	void Update () {
-
-        //Have the list runned out of pathCoordNumbers? If so, session is complete. Each pathList has 4 items.
-        randomPosition randomPositionScript = RandomPositionDecider.GetComponent<randomPosition>();
-        if (randomPositionScript.pathIndexNumber == 4){
-            Debug.Log("session is complete.");
-            StartApplicationSphere.SetActive(true);
-        }
-	}
 }

@@ -61,9 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ApplicationLogicScript.cs" />
     <Compile Include="Assets\EndSession.cs" />
     <Compile Include="Assets\EyeTracking.cs" />
     <Compile Include="Assets\EyeTrackingSAFE.cs" />
+    <Compile Include="Assets\FirebaseScript.cs" />
     <Compile Include="Assets\HeadTracking.cs" />
     <Compile Include="Assets\lockRotation.cs" />
     <Compile Include="Assets\MagicLeap\CoreComponents\BaseRaycast.cs" />
@@ -145,9 +147,18 @@
     <Compile Include="Assets\MagicLeap\Examples\Scripts\WorldScaleExample.cs" />
     <Compile Include="Assets\MagicLeap\Scripts\MLVersion.cs" />
     <Compile Include="Assets\randomPosition.cs" />
+    <Compile Include="Assets\RestClient\Packages\Proyecto26.RestClient\RestClient.cs" />
+    <Compile Include="Assets\RestClient\Packages\Proyecto26.RestClient\Utils\Extensions.cs" />
+    <Compile Include="Assets\RestClient\Packages\Proyecto26.RestClient\Utils\HttpBase.cs" />
+    <Compile Include="Assets\RestClient\Packages\Proyecto26.RestClient\Utils\JsonHelper.cs" />
+    <Compile Include="Assets\RestClient\Packages\Proyecto26.RestClient\Utils\RequestException.cs" />
+    <Compile Include="Assets\RestClient\Packages\Proyecto26.RestClient\Utils\RequestHelper.cs" />
+    <Compile Include="Assets\RestClient\Packages\Proyecto26.RestClient\Utils\ResponseHelper.cs" />
+    <Compile Include="Assets\RestClient\Packages\Proyecto26.RestClient\Utils\StaticCoroutine.cs" />
     <Compile Include="Assets\RotateSphere.cs" />
     <Compile Include="Assets\SetBigSpherePosition.cs" />
     <Compile Include="Assets\StartApplication.cs" />
+    <Compile Include="Assets\UserDataClass.cs" />
     <None Include="Assets\MagicLeap\BackgroundMusicExample\readme.txt" />
     <None Include="Assets\MagicLeap\Examples\Shaders\PointCloud.shader" />
     <None Include="Assets\MagicLeap\Examples\Documentation\MusicService.txt" />
@@ -389,6 +400,9 @@
     </Reference>
     <Reference Include="LuminUnity">
       <HintPath>/Users/marcus/GazeTrackV2/Assets/MagicLeap/Libs/LuminUnity.dll</HintPath>
+    </Reference>
+    <Reference Include="RSG.Promise">
+      <HintPath>/Users/marcus/GazeTrackV2/Assets/RestClient/Packages/RSG.Promise.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>/Users/marcus/Library/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>

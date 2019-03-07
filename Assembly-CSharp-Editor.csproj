@@ -324,6 +324,9 @@
     <Reference Include="LuminUnityEditor">
       <HintPath>/Users/marcus/GazeTrackV2/Assets/MagicLeap/Libs/Editor/LuminUnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="RSG.Promise">
+      <HintPath>/Users/marcus/GazeTrackV2/Assets/RestClient/Packages/RSG.Promise.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>/Users/marcus/Library/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>

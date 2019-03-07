@@ -7,7 +7,6 @@ public class StartApplication : MonoBehaviour {
 
     public GameObject Camera;
     public Material FocusedMaterial, NonFocusedMaterial;
-    public GameObject EntireScene;
 
     #region Private Variables
     private Vector3 _headingEyes;
@@ -15,26 +14,24 @@ public class StartApplication : MonoBehaviour {
     private MeshRenderer StartApplicationSphere;
     #endregion
 
-    //OnEnable runs when object.SetActive is set to true. See also OnDisable().
     void OnEnable(){
         //Debug.Log("Start Application Script");
         MLEyes.Start();
 
         //Reset the rotation of the StartApplicationSphere on every enable so that it doesn't start at >350 when script is called a second time.
+        //this might be unecessary atm, since it is also set in applicationLogic
         transform.rotation = Quaternion.identity;
         StartApplicationSphere = gameObject.GetComponent<MeshRenderer>();
 
-        //Set all other game objects (EntireScene) to false.
-        EntireScene.SetActive(false);
     }
 
     private void OnDisable(){
         MLEyes.Stop();
     }
 	
-	// Update is called once per frame
 	void Update () {
 
+        //rotate the StartApplicationSphere automaticlly. Should be removed.
         //transform.Rotate(new Vector3(0, 0, 1), 2);
 
         //if (MLEyes.IsStarted){
@@ -42,33 +39,21 @@ public class StartApplication : MonoBehaviour {
             //RaycastHit rayHit;
             //_headingEyes = MLEyes.FixationPoint - Camera.transform.position;
             //_headingHead = Camera.transform.forward;
-            //Debug.Log("_headingHead: " + _headingHead);
                   
             //If object is hit by both Eye and Head direction, it is considered focused.
+            //if (Physics.Raycast(Camera.transform.position, _headingEyes, out rayHit, 10.0f)){
             //if (Physics.Raycast(Camera.transform.position, _headingEyes, out rayHit, 10.0f) && Physics.Raycast(Camera.transform.position, _headingHead, out rayHit, 10.0f) ){
             if(true){
-                //Object is hit by raycast!
-                //Debug.Log("object focus" + StartApplicationSphere.transform.rotation.eulerAngles.z);
+                //Object is hit by both raycasts!
                 StartApplicationSphere.material = FocusedMaterial;
                 transform.Rotate(new Vector3(0, 0, 1), 2);
 
-                //Object has made a "full" turn. User wants to start the session.
-                if (StartApplicationSphere.transform.rotation.eulerAngles.z > 350){
-                //Set this object to false. And set the entire scene active.
-                    //Debug.Log("Full turn has been made");
-                    //The rotation must be reset, since otherwise the object starts at >350 when it gets back
-                    EntireScene.SetActive(true);
-                    
-                         
-                    // set this to false in another script
-                    //StartApplicationSphere.SetActive(false);
-                }
+                //Eventually StartApplicationSphere has made a "full" (> 350°) turn. User wants to start the session. This is recognized by ApplicationLogicScript.
             }
 
             else {
-                Debug.Log("object not focused");
+                //Debug.Log("object not focused");
                 StartApplicationSphere.material = NonFocusedMaterial;
-                //transform.Rotate(new Vector3(-1, 0, 0), Time.deltaTime);
             }
 
         //}

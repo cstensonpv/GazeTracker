@@ -63,6 +63,10 @@ public class FirebaseScript : MonoBehaviour {
 
         }
 
+        //Getting 17 decimals is quite an overkill. Round it.
+
+
+
         //Remove this chunk of meat. It is only here to provide stuff to the database when Magic Leap is not connected.
         //user.positionsEyeSession0.Add(Vector3.zero);
         //user.positionsHeadSession0.Add(Vector3.right);
@@ -81,6 +85,6 @@ public class FirebaseScript : MonoBehaviour {
         user.FixationConfidence = MLEyes.FixationConfidence;
 
         //RestClient.Post("https://gazetrackingdata.firebaseio.com/.json", user);
-        //Debug.Log("I hope we pushed.");
+        Debug.Log("I hope we pushed.");
     }
 }

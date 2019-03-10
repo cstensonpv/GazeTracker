@@ -12,9 +12,16 @@ public class StartApplication : MonoBehaviour {
     private Vector3 _headingEyes;
     private Vector3 _headingHead;
     private MeshRenderer StartApplicationSphere;
-    #endregion
 
-    void OnEnable(){
+    //This is the 'pointer' and it looks better if it is the same color as the StartApplicationSphere it is attached to.
+    private GameObject child;
+	#endregion
+
+	private void Awake(){
+        child = transform.GetChild(0).gameObject;
+	}
+
+	void OnEnable(){
         //Debug.Log("Start Application Script");
         MLEyes.Start();
 
@@ -30,7 +37,7 @@ public class StartApplication : MonoBehaviour {
     }
 	
 	void Update () {
-
+            
         //rotate the StartApplicationSphere automaticlly. Should be removed.
         //transform.Rotate(new Vector3(0, 0, 1), 2);
 
@@ -49,11 +56,15 @@ public class StartApplication : MonoBehaviour {
                 transform.Rotate(new Vector3(0, 0, 1), 2);
 
                 //Eventually StartApplicationSphere has made a "full" (> 350°) turn. User wants to start the session. This is recognized by ApplicationLogicScript.
+
+                child.GetComponent<Renderer>().material = FocusedMaterial;
             }
 
             else {
                 //Debug.Log("object not focused");
                 StartApplicationSphere.material = NonFocusedMaterial;
+
+                child.GetComponent<Renderer>().material = NonFocusedMaterial;
             }
 
         //}

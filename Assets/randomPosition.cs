@@ -5,7 +5,6 @@ using UnityEngine;
 public class randomPosition : MonoBehaviour {
 
     #region Public Variables
-    //public GameObject Camera;
     public GameObject EntireScene;
     public int pathIndexNumber = 0;
 
@@ -42,28 +41,28 @@ public class randomPosition : MonoBehaviour {
         path0[8] = new Vector3(0.0f, 0.0f, 0.5f);           //H: +15°   //V: -15°
         path0[9] = new Vector3(0.0f, 0.0f, 0.5f);           //Last coordinate is not reached.
 
-
-        path1[0] = new Vector3(0.2887f, 0.0f, 0.5f);        //H: +30°   //V: +0°
-        path1[1] = new Vector3(-0.1444f, -0.1444f, 0.5f);   //H: -45°   //V: -15°
-        path1[2] = new Vector3(-0.5774f, 0.0f, 0.5f);       //H: -45°   //V: +15°
-        path1[3] = new Vector3(0.5774f, 0.7218f, 0.5f);     //H: +120°  //V: +75°
-        path1[4] = new Vector3(0.7218f, 0.5774f, 0.5f);     //H: +15°   //V: -15°
-        path1[5] = new Vector3(0.5774f, -0.5774f, 0.5f);    //H: -15°   //V: -120°
-        path1[6] = new Vector3(-0.2887f, -0.5774f, 0.5f);   //H: -90°   //V: +0°
-        path1[7] = new Vector3(-0.1444f, 0.1444f, 0.5f);    //H: +15°   //V: +75°
-        path1[8] = new Vector3(0.0f, 0.0f, 0.5f);           //H: +15°   //V: -15°
+        //path0 turned 180°
+        path1[0] = new Vector3(-0.2887f, 0.0f, 0.5f);       //H: -30°   //V: +0°
+        path1[1] = new Vector3(0.1444f, 0.1444f, 0.5f);     //H: +45°   //V: +15°
+        path1[2] = new Vector3(0.5774f, 0.0f, 0.5f);        //H: +45°   //V: -15°
+        path1[3] = new Vector3(-0.5774f, -0.7218f, 0.5f);   //H: -120°  //V: -75°
+        path1[4] = new Vector3(-0.7218f, -0.5774f, 0.5f);   //H: -15°   //V: +15°
+        path1[5] = new Vector3(-0.5774f, 0.5774f, 0.5f);    //H: +15°   //V: +120°
+        path1[6] = new Vector3(0.2887f, 0.5774f, 0.5f);     //H: +90°   //V: +0°
+        path1[7] = new Vector3(0.1444f, -0.1444f, 0.5f);    //H: -15°   //V: -75°
+        path1[8] = new Vector3(0.0f, 0.0f, 0.5f);           //H: -15°   //V: +15°
         path1[9] = new Vector3(0.0f, 0.0f, 0.5f);           //Last coordinate is not reached.
 
-
-        path2[0] = new Vector3(0.2887f, 0.0f, 0.5f);        //H: +30°   //V: +0°
-        path2[1] = new Vector3(-0.1444f, -0.1444f, 0.5f);   //H: -45°   //V: -15°
-        path2[2] = new Vector3(-0.5774f, 0.0f, 0.5f);       //H: -45°   //V: +15°
-        path2[3] = new Vector3(0.5774f, 0.7218f, 0.5f);     //H: +120°  //V: +75°
-        path2[4] = new Vector3(0.7218f, 0.5774f, 0.5f);     //H: +15°   //V: -15°
-        path2[5] = new Vector3(0.5774f, -0.5774f, 0.5f);    //H: -15°   //V: -120°
-        path2[6] = new Vector3(-0.2887f, -0.5774f, 0.5f);   //H: -90°   //V: +0°
-        path2[7] = new Vector3(-0.1444f, 0.1444f, 0.5f);    //H: +15°   //V: +75°
-        path2[8] = new Vector3(0.0f, 0.0f, 0.5f);           //H: +15°   //V: -15°
+        //path0 backwards
+        path2[0] = new Vector3(-0.1444f, 0.1444f, 0.5f);    //H: -15°   //V: +15°
+        path2[1] = new Vector3(-0.2887f, -0.5774f, 0.5f);   //H: -15°   //V: -75°
+        path2[2] = new Vector3(0.5774f, -0.5774f, 0.5f);    //H: +90°   //V: 0°
+        path2[3] = new Vector3(0.7218f, 0.5774f, 0.5f);     //H: +15°   //V: +120°
+        path2[4] = new Vector3(0.5774f, 0.7218f, 0.5f);     //H: -15°   //V: +15°
+        path2[5] = new Vector3(-0.5774f, -0.0f, 0.5f);      //H: -120°  //V: -75°
+        path2[6] = new Vector3(-0.1444f, -0.1444f, 0.5f);   //H: +45°   //V: -15°
+        path2[7] = new Vector3(0.2887f, 0.0f, 0.5f);        //H: +45°   //V: +15°
+        path2[8] = new Vector3(0.0f, 0.0f, 0.5f);           //H: -30°   //V: 0°
         path2[9] = new Vector3(0.0f, 0.0f, 0.5f);           //Last coordinate is not reached.
 
     }
@@ -73,23 +72,23 @@ public class randomPosition : MonoBehaviour {
         pathIndexNumber = 0;
 
         EndSession EndSessionScript = EntireScene.GetComponent<EndSession>();
-        rotationSpeed = 11 + (EndSessionScript.selectedSession) * 10;
+        rotationSpeed = 10 + (EndSessionScript.selectedSession) * 7.5f;
         Debug.Log("rotationSpeed: " + rotationSpeed);
     }
 	
     public void setNewCoord(){
         //This is the position of the cube (RandomPositionDecider).
 
-        //get selectedSession from the other script
-        EndSession EndSessionScript = EntireScene.GetComponent<EndSession>();
-        Debug.Log("Setting new pathcoord in session: " + EndSessionScript.selectedSession + " pathIndexNumber: " + pathIndexNumber);
+        //Get selectedSession from the other script
+        int selectedSession = EntireScene.GetComponent<EndSession>().selectedSession;
+        Debug.Log("Setting new pathcoord in session: " + selectedSession + " PathIndexNumber: " + pathIndexNumber);
 
         //Depending on which session, choose right pathList.
-        if(EndSessionScript.selectedSession == 0){
+        if (selectedSession == 0){
             transform.position = path0[pathIndexNumber];
         }
 
-        else if (EndSessionScript.selectedSession == 1){
+        else if (selectedSession == 1){
             transform.position = path1[pathIndexNumber];
         }
 
@@ -98,7 +97,6 @@ public class randomPosition : MonoBehaviour {
             transform.position = path2[pathIndexNumber];
         }
 
-        //Debug.Log("setNewCoord" + transform.position);
         pathIndexNumber++;
     }
 

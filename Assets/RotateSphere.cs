@@ -5,67 +5,74 @@ using UnityEngine;
 public class RotateSphere : MonoBehaviour {
 
     #region Public Variables
-    //public Transform CustomPivotPointCube;
     public GameObject RandomPositionDecider;
-    //public GameObject EntireScene;
     #endregion
 
     #region Private Variables
     private MeshRenderer bigSphere;
-    //private Vector3 rotationAngle;
-    //private Vector3 bigSphereReferenceRotation;
-
     private Quaternion _lookRotation;
     private Vector3 _direction;
-
     private Quaternion previousFrameRotation;
+
+    private float runTime;
+    private float firstRotationDelay = 1.0f;
     #endregion
 
     #region Unity Methods
 	void Start () {
         bigSphere = gameObject.GetComponent<MeshRenderer>();
 	}
+
+    void OnEnable(){
+        Debug.Log("last session took: " + runTime);
+        runTime = 0;
+    }
 	
 	void Update () {
 
-        //The sphere rotates towards the 'target' (RandomPositionDecider), which jumps between coordinates.
-        _direction = (RandomPositionDecider.transform.position - bigSphere.transform.position).normalized;
+        runTime = runTime + Time.deltaTime;
+        //Wait firstRotationDelay seconds before first rotation. This is so that the UFO does not move instantly after session start.
+        if(runTime > firstRotationDelay){
+        
+            //The _direction variable decides in which direction the bigSphere should rotate. It is decided from the RandomPositionDecider (a cube which jumps between positions).
+            //When the rotation of the bigSphere is complete, the previousFrameRotation varible is 0 since it does not have to rotate anymore. When that happens RandomPositionDecider changes its position and the bigSphere's rotation starts again.
 
-        //Get the rotationSpeed from the RandomPositionDecider script
-        float rotationSpeed = RandomPositionDecider.GetComponent<randomPosition>().rotationSpeed;
+            //Get the rotationSpeed which varies depending on session from the RandomPositionDecider script.
+            float rotationSpeed = RandomPositionDecider.GetComponent<randomPosition>().rotationSpeed;
 
-        //This IF-statement is just to escape the "Look Rotation Viewing Vector Is Zero" spam in console, it is not required.
-        //if (_direction != Vector3.zero) {
-        _lookRotation = Quaternion.LookRotation(_direction);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, _lookRotation, rotationSpeed * Time.deltaTime);
-        //}
 
-        //Debug.Log("transform.rotation: " + transform.rotation.ToString("F7"));
-        //Debug.Log("deltaRotation: " + previousFrameRotation.ToString("F7"));
-        //float angle = Quaternion.Angle(transform.rotation, previousFrameRotation);
-        //Debug.Log("angle: " + angle);
+            _direction = (RandomPositionDecider.transform.position - bigSphere.transform.position).normalized;
+            //This IF-statement is just to escape the "Look Rotation Viewing Vector Is Zero" spam in console, it is not required.
+            //if (_direction != Vector3.zero) {
+            _lookRotation = Quaternion.LookRotation(_direction);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, _lookRotation, rotationSpeed * Time.deltaTime);
+            //}
 
-        //transform.rotation == previousFrameRotation does not work well for slow rotationspeed (<10°)
-        //However, we can force a better calculation by adding ToString("F7")), which makes it better. It is expensive tho.
-        //if (transform.rotation.ToString("F7") == previousFrameRotation.ToString("F7")){
-        if (transform.rotation == previousFrameRotation){  
-            //Debug.Log("angle: " + angle);
-            //Debug.Log("THEY ARE THE SAME:" + transform.rotation.ToString("F7"));
-            //Debug.Log("THEY ARE THE SAME:" + previousFrameRotation.ToString("F7"));
-            //When previousFrameRotation is same as transform.rotation we have turned zero ° since last frame! Means coordinate is reached.
-            randomPosition RandomPositionScript = RandomPositionDecider.GetComponent<randomPosition>();
-            RandomPositionScript.setNewCoord();
+
+            //When transform.rotation is same as previousFrameRotation we have turned 0° since last frame. Coordinate is reached. Time for a new position for the RandomPositionDecider.
+            if (transform.rotation.ToString("F4") == previousFrameRotation.ToString("F4")){  
+                //Debug.Log("They are the same:" + transform.rotation.ToString("F4"));
+                //Debug.Log("They are the same:" + previousFrameRotation.ToString("F4"));
+
+                randomPosition RandomPositionScript = RandomPositionDecider.GetComponent<randomPosition>();
+                RandomPositionScript.setNewCoord();
+            }
+
+            //IMPORTANT NOTE
+            //transform.rotation == previousFrameRotation does not work well for slow rotationspeed (<10°). 
+            //In some cases unity believes that they are the same even though they are not.
+            //              transform.rotation             =                previousFrameRotation
+            //(0.0000000, 0.0067529, 0.0000000, 0.9999772) = (0.0000000, 0.0053367, 0.0000000, 0.9999858)
+            //We can force a better calculation by adding ToString("F4")), which makes it much more accurate, but it is more expensive.
+            //4 digits is enough
+
+            //Debug.Log("transform.rotation: " + transform.rotation.ToString("F4"));
+            //Debug.Log("deltaRotation: " + previousFrameRotation.ToString("F4"));
+
+            //Rotation has been made (transform.rotation), it has been compared with the previous rotation and passed. The amount of rotation for this frame is saved to previousFrameRotation and the process starts over.
+            previousFrameRotation = transform.rotation;
+
         }
-
-
-        //Unity believes (0.0000000, 0.0067529, 0.0000000, 0.9999772) = (0.0000000, 0.0053367, 0.0000000, 0.9999858)
-        //for the previousFrameRotation and transform.rotation.
-
-        //Each frame the transform.rotation rotates the sphere a little bit. This rotation is compared with the rotation of
-        //the previous frame. If they are the same (0). That means the sphere has reached its destination and does
-        //not have to rotate anymore. That means a new coordinate should be set, and the rotation starts again.
-        previousFrameRotation = transform.rotation;
-
 
 	}
     #endregion

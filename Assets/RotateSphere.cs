@@ -15,7 +15,7 @@ public class RotateSphere : MonoBehaviour {
     private Quaternion previousFrameRotation;
 
     private float runTime;
-    private float firstRotationDelay = 1.0f;
+    private float firstRotationDelay = 1.5f;
     #endregion
 
     #region Unity Methods

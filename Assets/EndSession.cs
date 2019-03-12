@@ -28,8 +28,8 @@ public class EndSession : MonoBehaviour {
             Debug.Log("OUT OF SESSIONS");
 
             //Run send to SendToDatabase from FirebaseScript
-            FirebaseScript FirebaseScript = FireBaseLogic.GetComponent<FirebaseScript>();
-            FirebaseScript.SendToDatabase();
+            //FirebaseScript FirebaseScript = FireBaseLogic.GetComponent<FirebaseScript>();
+            //FirebaseScript.SendToDatabase();
 
             //Application.Quit();
         }

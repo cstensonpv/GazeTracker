@@ -8,6 +8,8 @@ using UnityEngine;
 public class UserDataClass {
 
     public string userName;
+    public string note;
+    public string timeStamp;
     public float FixationConfidence;
 
     public List<Vector3> targetSession0 = new List<Vector3>();
@@ -23,8 +25,10 @@ public class UserDataClass {
     public List<Vector3> positionsHeadSession2 = new List<Vector3>();
 
     public UserDataClass(){
-        
+
+        timeStamp = System.DateTime.Now.ToString("yyyy-MM-dd\\THH:mm:ss");
         userName = "Anonymous";
+        note = "---";
         //FixationConfidence = 54f;
     }
 }

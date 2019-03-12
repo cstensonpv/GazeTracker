@@ -2,16 +2,17 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/StartApplication.cs">
     <Files>
       <File FileName="Assets/EyeTracking.cs" Line="95" Column="13" />
-      <File FileName="Assets/HeadTracking.cs" Line="15" Column="5" />
-      <File FileName="Assets/RotateSphere.cs" Line="28" Column="21" />
-      <File FileName="Assets/randomPosition.cs" Line="71" Column="41" />
-      <File FileName="Assets/SetBigSpherePosition.cs" Line="24" Column="5" />
+      <File FileName="Assets/HeadTracking.cs" Line="72" Column="58" />
+      <File FileName="Assets/RotateSphere.cs" Line="18" Column="41" />
+      <File FileName="Assets/randomPosition.cs" Line="96" Column="39" />
+      <File FileName="Assets/SetBigSpherePosition.cs" Line="43" Column="11" />
       <File FileName="Assets/lockRotation.cs" Line="19" Column="9" />
-      <File FileName="Assets/StartApplication.cs" Line="51" Column="92" />
-      <File FileName="Assets/EndSession.cs" Line="25" Column="9" />
-      <File FileName="Assets/FirebaseScript.cs" Line="66" Column="61" />
-      <File FileName="Assets/UserDataClass.cs" Line="30" Column="2" />
-      <File FileName="Assets/ApplicationLogicScript.cs" Line="31" Column="13" />
+      <File FileName="Assets/StartApplication.cs" Line="85" Column="13" />
+      <File FileName="Assets/EndSession.cs" Line="32" Column="47" />
+      <File FileName="Assets/FirebaseScript.cs" Line="87" Column="18" />
+      <File FileName="Assets/UserDataClass.cs" Line="34" Column="2" />
+      <File FileName="Assets/ApplicationLogicScript.cs" Line="16" Column="1" />
+      <File FileName="Assets/EyeTrackingSAFE.cs" Line="38" Column="56" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

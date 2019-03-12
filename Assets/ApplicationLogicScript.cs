@@ -12,6 +12,11 @@ public class ApplicationLogicScript : MonoBehaviour {
     public GameObject RandomPositionDecider;
     #endregion
 
+    //AWAKE IS NEW, THIS IS SO THAT THE STARTAPPSPHERE FOLLOWS THE CAMERA SO IT'S WELL POSITIONED WHEN SITTING.
+    void Awake(){
+        StartApplicationSphere.SetActive(true);
+    }
+
     //This script runs all the time.
 	void Update () {
         
@@ -31,6 +36,11 @@ public class ApplicationLogicScript : MonoBehaviour {
 
             //Reset the index, Otherwise the script keeps going in here every frame.
             randomPositionScript.pathIndexNumber = 0;
+
+            //Push data from latest session to database.
+            FirebaseScript FirebaseScript = FireBaseLogic.GetComponent<FirebaseScript>();
+            FirebaseScript.SendToDatabase();
+
             EntireScene.SetActive(false);
             //Stop collecting data in FireBaseLogic and 'restart' the process. This time with a new session.
             FireBaseLogic.SetActive(false);

@@ -722,8 +722,8 @@ GameObject:
   - component: {fileID: 1119950283}
   - component: {fileID: 1119950282}
   - component: {fileID: 1119950281}
-  - component: {fileID: 1119950285}
   - component: {fileID: 1119950286}
+  - component: {fileID: 1119950285}
   m_Layer: 0
   m_Name: TargetPatternSphere
   m_TagString: Untagged
@@ -810,9 +810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c7f0514ad1c46789dd70b8b399717f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CustomPivotPointCube: {fileID: 310662829}
   RandomPositionDecider: {fileID: 1278818975}
-  EntireScene: {fileID: 1365857142}
 --- !u!114 &1119950286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,7 +823,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 1687258581}
-  initialRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1145013028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1007,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntireScene: {fileID: 1365857142}
   pathIndexNumber: 0
-  turnTime: 0
+  rotationSpeed: 0
+  TargetPatternSphere: {fileID: 1119950280}
 --- !u!1 &1365857142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,7 +1097,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   user:
     userName: Anonymous
-    calibrationFault: 35
+    note: '---'
+    timeStamp: 2019-03-10T16:18:34
+    FixationConfidence: 0
     targetSession0: []
     positionsEyeSession0: []
     positionsHeadSession0: []
@@ -1214,7 +1214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1922519257
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1297,6 +1297,8 @@ MonoBehaviour:
   Camera: {fileID: 1687258581}
   FocusedMaterial: {fileID: 2100000, guid: 3b4e1999293ce434aabe48ab13450ec9, type: 2}
   NonFocusedMaterial: {fileID: 2100000, guid: d58225ae4ed5147aa8f4ce2fd6089276, type: 2}
+  lineColorEyes: {fileID: 2100000, guid: 8cbdf7abb971d48ca9d2e8af71ee91f7, type: 2}
+  lineColorHead: {fileID: 2100000, guid: 0c362790bc8fd48e6b1c42ed9625a0e0, type: 2}
 --- !u!1 &2138677391
 GameObject:
   m_ObjectHideFlags: 0

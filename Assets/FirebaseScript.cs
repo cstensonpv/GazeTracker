@@ -23,6 +23,9 @@ public class FirebaseScript : MonoBehaviour {
     void Awake(){
         //Debug.Log("New user created");
         user = new UserDataClass();
+
+        //Create a new resource on a server, put will later add data to the same resource.
+        RestClient.Post("https://gazetrackingdata.firebaseio.com/"+user.timeStamp+".json", user);
     }
 
     void OnEnable(){
@@ -65,26 +68,38 @@ public class FirebaseScript : MonoBehaviour {
 
         //Getting 17 decimals is quite an overkill. Round it.
 
-
-
         //Remove this chunk of meat. It is only here to provide stuff to the database when Magic Leap is not connected.
-        //user.positionsEyeSession0.Add(Vector3.zero);
-        //user.positionsHeadSession0.Add(Vector3.right);
-        //user.targetSession0.Add(Vector3.up);
-        //user.positionsEyeSession1.Add(Vector3.zero);
-        //user.positionsHeadSession1.Add(Vector3.right);
-        //user.targetSession1.Add(Vector3.up);
-        //user.positionsEyeSession2.Add(Vector3.zero);
-        //user.positionsHeadSession2.Add(Vector3.right);
-        //user.targetSession2.Add(Vector3.up);
+        //if (CurrentSessionLocal == 0){
+        //    user.positionsEyeSession0.Add(new Vector3(0.476387908769543f, 0.867523246576849f, 0.997865742315467f));
+        //    user.positionsHeadSession0.Add(new Vector3(0.476387908769543f, 0.867523246576849f, 0.997865742315467f));
+        //    user.targetSession0.Add(new Vector3(0.476387908769543f, 0.867523246576849f, 0.997865742315467f));
+        //}
+
+        //else if (CurrentSessionLocal == 1){
+        //    user.positionsEyeSession1.Add(new Vector3(0.476387908769543f, 0.867523246576849f, 0.997865742315467f));
+        //    user.positionsHeadSession1.Add(new Vector3(0.476387908769543f, 0.867523246576849f, 0.997865742315467f));
+        //    user.targetSession1.Add(new Vector3(0.476387908769543f, 0.867523246576849f, 0.997865742315467f));
+        //}
+
+        //else{
+        //    user.positionsEyeSession2.Add(new Vector3(0.476387908769543f, 0.867523246576849f, 0.997865742315467f));
+        //    user.positionsHeadSession2.Add(new Vector3(0.476387908769543f, 0.867523246576849f, 0.997865742315467f));
+        //    user.targetSession2.Add(new Vector3(0.476387908769543f, 0.867523246576849f, 0.997865742315467f));
+        //}
+
     }
 
-
+    //After every session, the data is uploaded to firebase. "RestClient.Put" is used, which adds to the entry created by POST in Awake(). Unfortunately as it looks now the post now replaces the last post and therefore serves no real purpose. Should use PATCH but can't in restClient atm.
     public void SendToDatabase(){
         //The FixationConfidence could be set somewhere else.
-        user.FixationConfidence = MLEyes.FixationConfidence;
+        //user.FixationConfidence = MLEyes.FixationConfidence;
 
-        //RestClient.Post("https://gazetrackingdata.firebaseio.com/.json", user);
+        //RestClient.Put("https://gazetrackingdata.firebaseio.com/" + user.timeStamp + "/.json", user);
+
+        //RestClient.Post("https://gazetrackingdata.firebaseio.com/" + user.timeStamp + "S:" + CurrentSessionLocal + "/.json", user);
         Debug.Log("I hope we pushed.");
+
+        //Old solution
+        //RestClient.Post("https://gazetrackingdata.firebaseio.com/.json", user);
     }
 }

@@ -19,6 +19,10 @@ public class FirebaseScript : MonoBehaviour {
 
     private int CurrentSessionLocal;
 
+    //new
+    public GameObject TargetPatternSphere;
+    private Vector3 newOrgio;
+
     //Runs first (and only) time 'FireBaseLogic' is enabled. A new user is created.
     void Awake(){
         //Debug.Log("New user created");
@@ -36,6 +40,11 @@ public class FirebaseScript : MonoBehaviour {
         EndSession EndSessionScript = EntireScene.GetComponent<EndSession>();
         CurrentSessionLocal = EndSessionScript.selectedSession;
 
+        //New. We remove newOrgio from the UFO's position. This is so that it moves accordingly to origo. This is so that all three 'systems' eye/head and now target, all uses origo as a base.
+        newOrgio = TargetPatternSphere.transform.position;
+
+        //The FixationConfidence could be set somewhere else. Right now it is being set and overwritten three times.
+        user.FixationConfidence = MLEyes.FixationConfidence;
     }
 
     private void OnDisable(){
@@ -49,19 +58,19 @@ public class FirebaseScript : MonoBehaviour {
             if(CurrentSessionLocal == 0){
                 user.positionsEyeSession0.Add(MLEyes.FixationPoint.normalized);
                 user.positionsHeadSession0.Add(Camera.transform.forward.normalized);
-                user.targetSession0.Add(CustomPivotPointCube.position);
+                user.targetSession0.Add((CustomPivotPointCube.position - newOrgio).normalized);
             }
 
             else if (CurrentSessionLocal == 1){
                 user.positionsEyeSession1.Add(MLEyes.FixationPoint.normalized);
                 user.positionsHeadSession1.Add(Camera.transform.forward.normalized);
-                user.targetSession1.Add(CustomPivotPointCube.position);
+                user.targetSession1.Add((CustomPivotPointCube.position - newOrgio).normalized);
             }
 
             else {
                 user.positionsEyeSession2.Add(MLEyes.FixationPoint.normalized);
                 user.positionsHeadSession2.Add(Camera.transform.forward.normalized);
-                user.targetSession2.Add(CustomPivotPointCube.position);
+                user.targetSession2.Add((CustomPivotPointCube.position - newOrgio).normalized);
             }
 
         }
@@ -91,13 +100,12 @@ public class FirebaseScript : MonoBehaviour {
 
     //After every session, the data is uploaded to firebase. "RestClient.Put" is used, which adds to the entry created by POST in Awake(). Unfortunately as it looks now the post now replaces the last post and therefore serves no real purpose. Should use PATCH but can't in restClient atm.
     public void SendToDatabase(){
-        //The FixationConfidence could be set somewhere else.
-        //user.FixationConfidence = MLEyes.FixationConfidence;
 
-        //RestClient.Put("https://gazetrackingdata.firebaseio.com/" + user.timeStamp + "/.json", user);
+        RestClient.Put("https://gazetrackingdata.firebaseio.com/" + user.timeStamp + "/.json", user);
+        //Debug.Log("I hope we pushed.");
+
 
         //RestClient.Post("https://gazetrackingdata.firebaseio.com/" + user.timeStamp + "S:" + CurrentSessionLocal + "/.json", user);
-        Debug.Log("I hope we pushed.");
 
         //Old solution
         //RestClient.Post("https://gazetrackingdata.firebaseio.com/.json", user);

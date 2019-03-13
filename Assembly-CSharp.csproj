@@ -158,6 +158,7 @@
     <Compile Include="Assets\RotateSphere.cs" />
     <Compile Include="Assets\SetBigSpherePosition.cs" />
     <Compile Include="Assets\StartApplication.cs" />
+    <Compile Include="Assets\TargetTracking.cs" />
     <Compile Include="Assets\UserDataClass.cs" />
     <None Include="Assets\MagicLeap\BackgroundMusicExample\readme.txt" />
     <None Include="Assets\MagicLeap\Examples\Shaders\PointCloud.shader" />

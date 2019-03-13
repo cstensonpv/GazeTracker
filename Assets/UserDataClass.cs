@@ -29,6 +29,6 @@ public class UserDataClass {
         timeStamp = System.DateTime.Now.ToString("yyyy-MM-dd\\THH:mm:ss");
         userName = "Anonymous";
         note = "---";
-        //FixationConfidence = 54f;
+        //FixationConfidence = 0.1f;
     }
 }

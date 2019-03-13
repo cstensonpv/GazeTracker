@@ -17,7 +17,7 @@ public class HeadTracking : MonoBehaviour {
     #endregion
 
     #region Private Variables
-    private Vector3[] positionsHead = new Vector3[300];
+    private Vector3[] positionsHead = new Vector3[1000];
     private LineRenderer lineRendererHead;
     private int coordNumber = 0;
     #endregion
@@ -59,8 +59,8 @@ public class HeadTracking : MonoBehaviour {
             //HEAD TRACEING
             //Debug.Log("Camera.transform.forward: " + Camera.transform.forward);
 
-            if (coordNumber >= 300){
-                Debug.Log("300 points, reset HEAD Array");
+            if (coordNumber >= 1000){
+                Debug.Log("1000 points, reset HEAD Array");
                 Array.Clear(positionsHead, 0, positionsHead.Length);
                 coordNumber = 0;
             }

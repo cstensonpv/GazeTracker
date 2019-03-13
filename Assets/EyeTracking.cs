@@ -15,10 +15,10 @@ public class EyeTracking : MonoBehaviour {
     public GameObject Camera;
     public Material lineColorEye;
     //public int lengthOfLineRenderer = 300;
-    public Vector3[] positionsEye = new Vector3[300];
     #endregion
 
     #region Private Variables
+    private Vector3[] positionsEye = new Vector3[1000];
     private LineRenderer lineRendererEyes;
     private int coordNumber = 0;
     #endregion
@@ -79,8 +79,8 @@ public class EyeTracking : MonoBehaviour {
             //Draw a line between fixation points
 
             //If more than 300 points have been drawed, reset the array and start over.
-            if (coordNumber >= 300){
-                Debug.Log("300 points, reset EYE Array");
+            if (coordNumber >= 1000){
+                Debug.Log("1000 points, reset EYE Array");
                 Array.Clear(positionsEye, 0, positionsEye.Length);
                 coordNumber = 0;
             }

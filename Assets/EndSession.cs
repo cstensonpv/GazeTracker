@@ -25,13 +25,13 @@ public class EndSession : MonoBehaviour {
 
         if (sessionList.Count == 0) {
             //Program should probably end here.
-            Debug.Log("OUT OF SESSIONS");
+            //Debug.Log("OUT OF SESSIONS");
 
             //Run send to SendToDatabase from FirebaseScript
             //FirebaseScript FirebaseScript = FireBaseLogic.GetComponent<FirebaseScript>();
             //FirebaseScript.SendToDatabase();
 
-            //Application.Quit();
+            Application.Quit();
         }
 
         else {

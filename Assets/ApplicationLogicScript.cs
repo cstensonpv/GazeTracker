@@ -12,7 +12,7 @@ public class ApplicationLogicScript : MonoBehaviour {
     public GameObject RandomPositionDecider;
     #endregion
 
-    //AWAKE IS NEW, THIS IS SO THAT THE STARTAPPSPHERE FOLLOWS THE CAMERA SO IT'S WELL POSITIONED WHEN SITTING.
+    //This is here so that the startAppSphere follows the camera so it's well positioned when user is sitting.
     void Awake(){
         StartApplicationSphere.SetActive(true);
     }
@@ -32,7 +32,7 @@ public class ApplicationLogicScript : MonoBehaviour {
 
         randomPosition randomPositionScript = RandomPositionDecider.GetComponent<randomPosition>();
         if (randomPositionScript.pathIndexNumber == 10){
-            Debug.Log("Session is complete.");
+            //Debug.Log("Session is complete.");
 
             //Reset the index, Otherwise the script keeps going in here every frame.
             randomPositionScript.pathIndexNumber = 0;

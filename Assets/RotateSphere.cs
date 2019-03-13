@@ -24,7 +24,7 @@ public class RotateSphere : MonoBehaviour {
 	}
 
     void OnEnable(){
-        Debug.Log("last session took: " + runTime);
+        //Debug.Log("last session took: " + runTime);
         runTime = 0;
     }
 	

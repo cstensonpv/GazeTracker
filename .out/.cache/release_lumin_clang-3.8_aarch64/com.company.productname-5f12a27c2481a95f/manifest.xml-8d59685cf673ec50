@@ -1,0 +1,22 @@
+<manifest xmlns:ml="magicleap" ml:developer_id="3b1901b5-46e4-4694-a31c-2ed297fc4ecc" ml:package="com.company.productname" ml:version_code="1" ml:version_name="">
+  <application ml:min_api_level="3" ml:sdk_version="1.0" ml:visible_name="GazeTrackV2">
+    <uses-privilege ml:name="LowLatencyLightwear" />
+    <uses-privilege ml:name="ConnectBackgroundMusicService" />
+    <uses-privilege ml:name="MusicService" />
+    <uses-privilege ml:name="RegisterBackgroundMusicService" />
+    <uses-privilege ml:name="ControllerPose" />
+    <component ml:binary_name="bin/Player.elf" ml:name=".fullscreen" ml:type="Fullscreen" ml:visible_name="GazeTrackV2">
+      <icon ml:model_folder="Icon/Model" ml:portal_folder="Icon/Portal" />
+    </component>
+    <component ml:binary_name="bin/ExampleMusicProvider" ml:name=".example_music_provider" ml:type="MusicService" ml:visible_name="ExampleMusicProvider">
+      <music-attribute ml:name="seekable" />
+      <music-attribute ml:name="shuffleable" />
+      <music-attribute ml:name="songRepeatable" />
+      <music-attribute ml:name="albumRepeatable" />
+      <music-attribute ml:name="nextAvailable" />
+      <music-attribute ml:name="prevAvailable" />
+      
+      <icon ml:model_folder="Empty" ml:portal_folder="Empty" />
+    </component>
+  </application>
+</manifest>

@@ -29,7 +29,7 @@ public class FirebaseScript : MonoBehaviour {
         user = new UserDataClass();
 
         //Create a new resource on a server, put will later add data to the same resource.
-        RestClient.Post("https://gazetrackingdata.firebaseio.com/"+user.timeStamp+".json", user);
+        //RestClient.Post("https://gazetrackingdata.firebaseio.com/"+user.timeStamp+".json", user);
     }
 
     void OnEnable(){
@@ -101,7 +101,7 @@ public class FirebaseScript : MonoBehaviour {
     //After every session, the data is uploaded to firebase. "RestClient.Put" is used, which adds to the entry created by POST in Awake(). Unfortunately as it looks now the post now replaces the last post and therefore serves no real purpose. Should use PATCH but can't in restClient atm.
     public void SendToDatabase(){
 
-        RestClient.Put("https://gazetrackingdata.firebaseio.com/" + user.timeStamp + "/.json", user);
+        //RestClient.Put("https://gazetrackingdata.firebaseio.com/" + user.timeStamp + "/.json", user);
         //Debug.Log("I hope we pushed.");
 
 

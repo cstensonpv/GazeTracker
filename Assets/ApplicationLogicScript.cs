@@ -38,7 +38,7 @@ public class ApplicationLogicScript : MonoBehaviour {
             randomPositionScript.pathIndexNumber = 0;
 
             //Push data from latest session to database.
-            FirebaseScript FirebaseScript = FireBaseLogic.GetComponent<FirebaseScript>();
+            NewFirebaseScript FirebaseScript = FireBaseLogic.GetComponent<NewFirebaseScript>();
             FirebaseScript.SendToDatabase();
 
             EntireScene.SetActive(false);

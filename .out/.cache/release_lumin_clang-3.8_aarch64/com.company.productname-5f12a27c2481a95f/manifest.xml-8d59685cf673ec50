@@ -18,5 +18,7 @@
       
       <icon ml:model_folder="Empty" ml:portal_folder="Empty" />
     </component>
+    <uses-privilege ml:name="Internet" />
+    <uses-privilege ml:name="LocalAreaNetwork" />
   </application>
 </manifest>

@@ -146,6 +146,7 @@
     <Compile Include="Assets\MagicLeap\Examples\Scripts\Visualizers\VideoCaptureVisualizer.cs" />
     <Compile Include="Assets\MagicLeap\Examples\Scripts\WorldScaleExample.cs" />
     <Compile Include="Assets\MagicLeap\Scripts\MLVersion.cs" />
+    <Compile Include="Assets\NewFirebaseScript.cs" />
     <Compile Include="Assets\randomPosition.cs" />
     <Compile Include="Assets\RestClient\Packages\Proyecto26.RestClient\RestClient.cs" />
     <Compile Include="Assets\RestClient\Packages\Proyecto26.RestClient\Utils\Extensions.cs" />

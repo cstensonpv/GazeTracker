@@ -21,7 +21,7 @@
   },
   {
    "compression": 8,
-   "hash": "674e825c82a60ec261d314d0086c49694aa1f8fc",
+   "hash": "aaecc148d042168cb027a138fe9765de9efcf7cc",
    "pkgpath": "Data/095890d8c9bde1a45b549a17e6e6f961",
    "size": 5036,
    "src": "/Users/marcus/GazeTrackV2/Temp/StagingArea/Data/095890d8c9bde1a45b549a17e6e6f961"
@@ -98,16 +98,16 @@
   },
   {
    "compression": 8,
-   "hash": "1351ab0ede9fb6873b0898b97b45e422d6043eb9",
+   "hash": "c00cdd57b030a8c63d4c55baf4426408f3f2a81c",
    "pkgpath": "Data/Managed/Metadata/global-metadata.dat",
-   "size": 2878400,
+   "size": 2881628,
    "src": "/Users/marcus/GazeTrackV2/Temp/StagingArea/Data/Managed/Metadata/global-metadata.dat"
   },
   {
    "compression": 8,
-   "hash": "71563f23541ecb25df7b28681356eef1aa548d2b",
+   "hash": "d3b8ac62e022bb4380bcd8e264bc1055b2deae84",
    "pkgpath": "bin/libil2cpp.so",
-   "size": 35766504,
+   "size": 35798192,
    "src": "/Users/marcus/GazeTrackV2/Temp/StagingArea/Data/Native/libil2cpp.so",
    "xfrm_flags": {
     "signed": {
@@ -118,9 +118,9 @@
      "version": 3
     }
    },
-   "xfrm_hash": "27f6fcaa5108c7fa42727a85db13e70f50efd1f3",
+   "xfrm_hash": "0eeeeaf9b1fbafeb97cd87ac111e83e82a091b46",
    "xfrm_path": "/Users/marcus/GazeTrackV2/.out/.cache/release_lumin_clang-3.8_aarch64/com.company.productname-5f12a27c2481a95f/libil2cpp.so-5920342e0c91b122",
-   "xfrm_size": 35767262
+   "xfrm_size": 35798950
   },
   {
    "compression": 8,
@@ -284,30 +284,30 @@
   },
   {
    "compression": 8,
-   "hash": "a8eff70ff0c6a0bc60180dcafe7ac5ace367eb7e",
+   "hash": "839a5ad7aa2a0a4d45b40078287be9cc908ecf35",
    "pkgpath": "Data/globalgamemanagers",
-   "size": 36424,
+   "size": 36472,
    "src": "/Users/marcus/GazeTrackV2/Temp/StagingArea/Data/globalgamemanagers"
   },
   {
    "compression": 8,
-   "hash": "ab7564ace98979ea88747676e87d90f3a7df442b",
+   "hash": "6f54726988da2283d49fe2d776f41f0f3e0d15c3",
    "pkgpath": "Data/globalgamemanagers.assets",
-   "size": 38604,
+   "size": 38724,
    "src": "/Users/marcus/GazeTrackV2/Temp/StagingArea/Data/globalgamemanagers.assets"
   },
   {
    "compression": 8,
-   "hash": "f0ae67e9adad7cca7f0471b0ae31ff6b0eec0a7c",
+   "hash": "1d4572867757ac1fb1493e4cb9bd8bf8cf7ab8b0",
    "pkgpath": "Data/level0",
-   "size": 9752,
+   "size": 9936,
    "src": "/Users/marcus/GazeTrackV2/Temp/StagingArea/Data/level0"
   },
   {
    "compression": 8,
-   "hash": "6c80c28291ae3b9336122065b0533cd37e71bd62",
+   "hash": "02eb072e4e323ba9ddb3ee709d1deb14b58f8d83",
    "pkgpath": "Data/sharedassets0.assets",
-   "size": 804584,
+   "size": 804600,
    "src": "/Users/marcus/GazeTrackV2/Temp/StagingArea/Data/sharedassets0.assets"
   },
   {
@@ -338,9 +338,9 @@
   },
   {
    "compression": 8,
-   "hash": "659107501574bcda98496cdd775a38c44a0738d8",
+   "hash": "f5ae8944a82e922904d6699b4b1de938af16a088",
    "pkgpath": "manifest.xml",
-   "size": 1423,
+   "size": 1515,
    "src": "/Users/marcus/GazeTrackV2/Temp/StagingArea/manifest.xml",
    "xfrm_flags": {
     "manifest": {
@@ -348,9 +348,9 @@
      "developer_id": "3b1901b5-46e4-4694-a31c-2ed297fc4ecc"
     }
    },
-   "xfrm_hash": "dd1e67da706d1bd52db78b74e4813ea628b6d697",
+   "xfrm_hash": "db28e1bc2712e91ba501a9310fa245e9fe386a9e",
    "xfrm_path": "/Users/marcus/GazeTrackV2/.out/.cache/release_lumin_clang-3.8_aarch64/com.company.productname-5f12a27c2481a95f/manifest.xml-8d59685cf673ec50",
-   "xfrm_size": 1304
+   "xfrm_size": 1396
   },
   {
    "compression": 8,

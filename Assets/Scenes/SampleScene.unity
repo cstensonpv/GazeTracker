@@ -873,7 +873,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1669331436}
-  - component: {fileID: 1669331437}
   - component: {fileID: 1669331438}
   m_Layer: 0
   m_Name: FireBaseLogic
@@ -895,35 +894,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1669331437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1669331435}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5efd1dba7e6847859b6fb3be205cda6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  user:
-    userName: Anonymous
-    note: '---'
-    timeStamp: 2019-03-10T16:18:34
-    FixationConfidence: 0
-    targetSession0: []
-    positionsEyeSession0: []
-    positionsHeadSession0: []
-    targetSession1: []
-    positionsEyeSession1: []
-    positionsHeadSession1: []
-    targetSession2: []
-    positionsEyeSession2: []
-    positionsHeadSession2: []
-  Camera: {fileID: 1687258581}
-  CustomPivotPointCube: {fileID: 310662829}
-  EntireScene: {fileID: 1365857142}
-  TargetPatternSphere: {fileID: 1119950280}
 --- !u!114 &1669331438
 MonoBehaviour:
   m_ObjectHideFlags: 0

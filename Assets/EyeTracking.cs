@@ -14,7 +14,6 @@ public class EyeTracking : MonoBehaviour {
     #region Public Variables
     public GameObject Camera;
     public Material lineColorEye;
-    //public int lengthOfLineRenderer = 300;
     #endregion
 
     #region Private Variables

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.MagicLeap;
 
 //This is the RestClient
-using Proyecto26;
+//using Proyecto26;
 
 public class FirebaseScript : MonoBehaviour {
 

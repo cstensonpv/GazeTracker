@@ -25,7 +25,7 @@ public class StartApplication : MonoBehaviour {
         child = transform.GetChild(0).gameObject;
 	}
 
-    //NEW this can't be set in enable because camera is still 0,0,0 by then. It is only runned once. 
+    //This part can't be set in enable because camera is still 0,0,0 by then. It is only runned once. 
 	private void Start(){
         //Set the start applicationSphere according to the Camera's position.
         transform.position = Camera.transform.position + (new Vector3(0,0,1) * 1.2f);

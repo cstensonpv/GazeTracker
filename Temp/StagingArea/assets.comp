@@ -1,0 +1,43 @@
+######### DO NOT EDIT BELOW #########
+DATAS = \
+	Player.elf : bin/Player.elf \
+	Data/095890d8c9bde1a45b549a17e6e6f961 \
+	Data/170c02e10c121294486c57133d65b5cc \
+	Data/1e71f539decd80f4bb2541c46a153223 \
+	Data/2b303258409019f428ed17a87cda4ac9 \
+	Data/479521f96370b384d810a07599e7b084 \
+	Data/51731a8a220e240478717934f6e99543 \
+	Data/63e7f9bd47d71334aa0ffb67cc5bbfb1 \
+	Data/7f93338dc6150ea45b387e442e8102da \
+	Data/8401b9c91b47d6449a4be596c8138a90 \
+	Data/917dc8bcba1c29c4c8bd325b59088d1c \
+	Data/9c9078c06443df049a2830962f9dd5ef \
+	Data/adcae46baa3736748a69f9f489676bd7 \
+	Data/boot.config \
+	Data/globalgamemanagers \
+	Data/globalgamemanagers.assets \
+	Data/level0 \
+	Data/sharedassets0.assets \
+	Data/sharedassets0.assets.resS \
+	Data/Managed/Metadata/global-metadata.dat \
+	Data/Native/libil2cpp.so : bin/libil2cpp.so \
+	Data/Plugins/AudioPluginMSASpatializer.so : bin/AudioPluginMSASpatializer.so \
+	Data/Plugins/UnityEngine.SpatialTracking.dll : bin/UnityEngine.SpatialTracking.dll \
+	Data/Plugins/UnityEngine.TestRunner.dll : bin/UnityEngine.TestRunner.dll \
+	Data/Plugins/UnityMagicLeap.so : bin/UnityMagicLeap.so \
+	Data/Plugins/libml_camera_plugin.so : bin/libml_camera_plugin.so \
+	Data/Plugins/libml_mediaplayer_plugin.so : bin/libml_mediaplayer_plugin.so \
+	Data/Plugins/nunit.framework.dll : bin/nunit.framework.dll \
+	Data/Resources/mscorlib.dll-resources.dat \
+	"Data/Resources/unity default resources" \
+	Data/Resources/unity_builtin_extra \
+	Data/StreamingAssets/BackgroundMusicExample/Tune1.mp3 \
+	Data/StreamingAssets/BackgroundMusicExample/Tune2.mp3 \
+	Data/StreamingAssets/BackgroundMusicExample/Tune3.ogg \
+	Data/UnitySubsystems/Runtime/UnitySubsystemsManifest.json \
+	/Users/marcus/MagicLeap/mlsdk/v0.19.0/lumin/stl/libc++/lib/libc++_shared.so : bin/libc++_shared.so \
+
+
+
+
+######### DO NOT EDIT ABOVE #########

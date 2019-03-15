@@ -42,7 +42,7 @@ public class NewFirebaseScript : MonoBehaviour {
         EndSession EndSessionScript = EntireScene.GetComponent<EndSession>();
         CurrentSessionLocal = EndSessionScript.selectedSession;
 
-        //New. We remove newOrgio from the UFO's position. This is so that it moves accordingly to origo. This is so that all three 'systems' eye/head and now target, all uses origo as a base.
+        //Remove newOrgio from the UFO's position. This is so that it moves accordingly to origo. This is so that all three 'systems' eye/head and now target, all uses origo as a base.
         newOrgio = TargetPatternSphere.transform.position;
 
         //The FixationConfidence could be set somewhere else. Right now it is being set and overwritten three times.
@@ -81,15 +81,13 @@ public class NewFirebaseScript : MonoBehaviour {
     }
 
     public void SendToDatabase(){
-        Debug.Log("SendToDatabase");
-        //string url = "https://gazetrackingdata.firebaseio.com/" + user.timeStamp + ".json";
         string UpdatedJson = JsonUtility.ToJson(user);
         StartCoroutine(PutRequest(url, UpdatedJson));
     }
 
 
     IEnumerator PutRequest(string url, string bodyJsonString){
-        Debug.Log("In Put/patch, add list to resource");
+        //Debug.Log("In Put/patch, add list to resource");
         var request = new UnityWebRequest(url, "PATCH");
         //var request = new UnityWebRequest(url, "PUT"); //Also works, but 'patch' updates, while put replaces the old put
         byte[] bodyRaw = new System.Text.UTF8Encoding().GetBytes(bodyJsonString);
@@ -99,12 +97,12 @@ public class NewFirebaseScript : MonoBehaviour {
 
         yield return request.Send();
 
-        Debug.Log("Response: " + request.downloadHandler.text);
+        //Debug.Log("Response: " + request.downloadHandler.text);
     }
 
     IEnumerator PostRequest(string url, string bodyJsonString){
         //Create a new resource on a server, put will later add data to the same resource.
-        Debug.Log("In Post, create resource");
+        //Debug.Log("In Post, create resource");
         var request = new UnityWebRequest(url, "POST");
         byte[] bodyRaw = new System.Text.UTF8Encoding().GetBytes(bodyJsonString);
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
@@ -113,15 +111,8 @@ public class NewFirebaseScript : MonoBehaviour {
 
         yield return request.Send();
 
-        Debug.Log("Response: " + request.downloadHandler.text);
+        //Keep this line, it's great for debugging!
+        //Debug.Log("Response: " + request.downloadHandler.text);
     }
-
-    //void Start(){
-
-    //    string url = "https://gazetrackingdata.firebaseio.com/.json";
-    //    string json = JsonUtility.ToJson(user);
-
-    //    StartCoroutine(PostRequest(url, json));
-    //}
 
 }
